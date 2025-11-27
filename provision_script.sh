@@ -1,12 +1,8 @@
 #!/bin/bash
 
 #
-cd /workspace/
 # Cause the script to exit on failure.
 set -eo pipefail
-
-# Activate the main virtual environment
-. /venv/main/bin/activate
 
 ## Install Docker
 apt update && apt install -y ca-certificates curl
@@ -16,7 +12,7 @@ chmod a+r /etc/apt/keyrings/docker.asc
 
 echo "Types: deb" > /etc/apt/sources.list.d/docker.sources
 echo "URIs: https://download.docker.com/linux/ubuntu" >> /etc/apt/sources.list.d/docker.sources
-echo "Suites: \$(. /etc/os-release && echo \"\${UBUNTU_CODENAME:-\$VERSION_CODENAME}\")" >> /etc/apt/sources.list.d/docker.sources
+echo "Suites: $(. /etc/os-release && echo "${UBUNTU_CODENAME:-$VERSION_CODENAME}")" >> /etc/apt/sources.list.d/docker.sources
 echo "Components: stable" >> /etc/apt/sources.list.d/docker.sources
 echo "Signed-By: /etc/apt/keyrings/docker.asc"  >> /etc/apt/sources.list.d/docker.sources
 
@@ -32,6 +28,7 @@ echo "stdout_logfile=/var/log/docker.out.log" >> /etc/supervisor/conf.d/docker.c
 
 # Reload Supervisor
 supervisorctl reload
+sleep 2
 supervisorctl update
 
 # Start Docker
