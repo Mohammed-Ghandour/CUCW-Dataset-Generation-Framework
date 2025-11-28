@@ -6,6 +6,7 @@ apt update && apt install -y apt-transport-https ca-certificates gnupg curl cuda
 # Generate SSH Keys
 ssh-keygen -t ed25519
 cat ~/.ssh/id_ed25519.pub
+sleep 5
 
 ## Download Kaggle Docker Image
 # Download google-cloud-cli
