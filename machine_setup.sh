@@ -19,6 +19,15 @@ docker pull gcr.io/kaggle-gpu-images/python:v82
 # Run jupyter by the Docker image
 echo "kjupyter () { docker run --gpus all --runtime nvidia -v $PWD:/tmp/working -w=/tmp/working -p 8888:8888 --rm -it gcr.io/kaggle-gpu-images/python:v82 jupyter notebook --no-browser --port 8888 --ip="*" --allow-root --notebook-dir=/tmp/working; }" >> ~/.bashrc
 
+## Add the NVIDIA package repositories
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -
+curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | tee /etc/apt/sources.list.d/nvidia-docker.list
+
+# Install the toolkit
+apt update
+apt install -y nvidia-docker2
+
 # Download Waymo Night Dataset
 curl -L -o waymo-night-training-v2.zip https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-night-training-v2
 
