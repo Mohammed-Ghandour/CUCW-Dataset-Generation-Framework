@@ -1,38 +1,37 @@
 #!/bin/bash
 
 # Download prerequisite packages
-apt update && apt install -y apt-transport-https ca-certificates gnupg curl cuda-toolkit tmux
+#apt update && apt install -y apt-transport-https ca-certificates gnupg curl cuda-toolkit tmux
 
 ## Download Kaggle Docker Image
 # Download google-cloud-cli
-curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
-echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
-apt update && apt install -y google-cloud-cli
+#curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | gpg --dearmor -o /usr/share/keyrings/cloud.google.gpg
+#echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+#apt update && apt install -y google-cloud-cli
 
 # Configure gcloud
-gcloud init
-gcloud auth configure-docker gcr.io
+#gcloud init
+#gcloud auth configure-docker gcr.io
 
 # Finally, pull the Docker image
-docker pull gcr.io/kaggle-gpu-images/python:v82
+#docker pull gcr.io/kaggle-gpu-images/python:v82
 
 # Run jupyter by the Docker image
-echo "kjupyter () { docker run --gpus all --runtime nvidia -v $PWD:/tmp/working -w=/tmp/working -p 8888:8888 --rm -it gcr.io/kaggle-gpu-images/python:v82 jupyter notebook --no-browser --port 8888 --ip="*" --allow-root --notebook-dir=/tmp/working; }" >> ~/.bashrc
+#echo "kjupyter () { docker run --gpus all --runtime nvidia -v $PWD:/tmp/working -w=/tmp/working -p 8888:8888 --rm -it gcr.io/kaggle-gpu-images/python:v82 jupyter notebook --no-browser --port 8888 --ip="*" --allow-root --notebook-dir=/tmp/working; }" >> ~/.bashrc
 
 ## Add the NVIDIA package repositories
-distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
-curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -
-curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | tee /etc/apt/sources.list.d/nvidia-docker.list
+#distribution=$(. /etc/os-release;echo $ID$VERSION_ID)
+#curl -s -L https://nvidia.github.io/nvidia-docker/gpgkey | apt-key add -
+#curl -s -L https://nvidia.github.io/nvidia-docker/$distribution/nvidia-docker.list | tee /etc/apt/sources.list.d/nvidia-docker.list
 
 # Install the toolkit
-apt update
-apt install -y nvidia-docker2
+#apt update && apt install -y nvidia-docker2
 
 # Download Waymo Night Dataset
 curl -L -o waymo-night-training-v2.zip https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-night-training-v2
 
 # Download Waymo Night Validation Dataset
-curl -L -o waymo-night-validation-dataset.zip https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-night-validation-dataset
+#curl -L -o waymo-night-validation-dataset.zip https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-night-validation-dataset
 
 # Clone TF3D
 git clone https://github.com/google-research/google-research.git
