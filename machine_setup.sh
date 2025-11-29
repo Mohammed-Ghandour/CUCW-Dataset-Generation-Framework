@@ -27,15 +27,27 @@
 # Install the toolkit
 #apt update && apt install -y nvidia-docker2
 
-# Download Waymo Night Dataset
-curl -L -o waymo-night-training-v2.zip https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-night-training-v2
+apt update && apt install -y zip python3.7 python3.7-dev python3.7-venv
+update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1
+update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 2
 
-# Download Waymo Night Validation Dataset
-#curl -L -o waymo-night-validation-dataset.zip https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-night-validation-dataset
+update-alternatives --config python3
+
+python3.7 -m pip install --upgrade pip
+python3.7 -m pip install jupyter_core
+python3.7 -m pip install notebook jupyterlab
 
 # Clone TF3D
 git clone https://github.com/google-research/google-research.git
 
 # Revert to the tested version
 cd google-research; git reset --hard 512a91d1c;
+
+# Download Waymo Night Dataset
+curl -L -o waymo-night-training-v2.zip https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-night-training-v2
+
+# Download Waymo Night Validation Dataset
+#curl -L -o waymo-night-validation-dataset.zip https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-night-validation-dataset
+
+
 
