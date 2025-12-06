@@ -40,7 +40,7 @@
 git clone https://github.com/google-research/google-research.git
 
 # Revert to the tested version
-cd google-research; git reset --hard 512a91d1c;
+cd google-research; git reset --hard 512a91d1c; cd -
 
 # Download Waymo Night Dataset
 #curl -L -o waymo-night-training-v2.zip https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-night-training-v2
