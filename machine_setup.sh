@@ -43,10 +43,10 @@ git clone https://github.com/google-research/google-research.git
 cd google-research; git reset --hard 512a91d1c;
 
 # Download Waymo Night Dataset
-curl -L -o waymo-night-training-v2.zip https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-night-training-v2
+#curl -L -o waymo-night-training-v2.zip https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-night-training-v2
+wget --continue https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-mv-night-training -O waymo-mv-night-training.zip
 
 # Download Waymo Night Validation Dataset
 #curl -L -o waymo-night-validation-dataset.zip https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-night-validation-dataset
-
-
+wget --continue https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-sf-night-validation -O waymo-sf-night-validation.zip
 
