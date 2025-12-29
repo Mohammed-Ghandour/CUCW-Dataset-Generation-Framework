@@ -31,8 +31,8 @@ from tf3d.object_detection import data_preparation_utils
 from tf3d.object_detection import metric as object_detection_metric
 from tf3d.object_detection import model as object_detection_model
 from tf3d.object_detection import preprocessor as object_detection_preprocessor
-##################from tf3d.semantic_segmentation import metric as semantic_segmentation_metric
-##################from tf3d.semantic_segmentation import model as semantic_segmentation_model
-##################from tf3d.semantic_segmentation import preprocessor as semantic_segmentation_preprocessor
+###from tf3d.semantic_segmentation import metric as semantic_segmentation_metric
+###from tf3d.semantic_segmentation import model as semantic_segmentation_model
+###from tf3d.semantic_segmentation import preprocessor as semantic_segmentation_preprocessor
 from tf3d.utils import callback_utils
 # pylint: enable=unused-import
