@@ -42,9 +42,13 @@
 # Revert to the tested version
 #cd google-research; git reset --hard 512a91d1c; cd -
 
+# Move notebook source codes to home dir
+mv ./CUCW-Dataset-Generation-Framework/3d-object-detection-and-synthetic* ~
+
 # Download Waymo Night Dataset
 #curl -L -o waymo-night-training-v2.zip https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-night-training-v2
-wget --continue https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-mv-night-training -O waymo-mv-night-training.zip
+#wget --continue https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-mv-night-training -O waymo-mv-night-training.zip
+wget --continue https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-sf-night-training -O waymo-sf-night-training.zip
 
 # Download Waymo Night Validation Dataset
 #curl -L -o waymo-night-validation-dataset.zip https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-night-validation-dataset
