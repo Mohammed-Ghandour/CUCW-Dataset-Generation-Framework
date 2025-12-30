@@ -45,12 +45,15 @@
 # Move notebook source codes to home dir
 mv ./CUCW-Dataset-Generation-Framework/3d-object-detection-and-synthetic* ~
 
-# Download Waymo Night Dataset
+# Download and unzip Waymo Night Dataset
 #curl -L -o waymo-night-training-v2.zip https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-night-training-v2
 #wget --continue https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-mv-night-training -O waymo-mv-night-training.zip
 wget --continue https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-sf-night-training -O waymo-sf-night-training.zip
+mkdir waymo-sf-night-training
+cd waymo-sf-night-training; unzip ../waymo-sf-night-training.zip
 
 # Download Waymo Night Validation Dataset
 #curl -L -o waymo-night-validation-dataset.zip https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-night-validation-dataset
 wget --continue https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-sf-night-validation -O waymo-sf-night-validation.zip
-
+mkdir waymo-sf-night-validation
+cd waymo-sf-night-validation; unzip ../waymo-sf-night-validation.zip
