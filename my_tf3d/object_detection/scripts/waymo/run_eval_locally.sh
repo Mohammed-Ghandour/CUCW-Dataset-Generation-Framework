@@ -19,7 +19,7 @@ JOB_NAME="det_waymo_${VERSION}"
 EVAL_DIR="/tmp/tf3d_experiment/${JOB_NAME}"
 CKPT_DIR="${EVAL_DIR}/model/"
 
-NUM_STEPS_PER_EPOCH=1
+NUM_STEPS_PER_EPOCH=100
 LOG_FREQ=100
 
 # Data

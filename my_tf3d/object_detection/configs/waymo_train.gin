@@ -87,10 +87,15 @@ ObjectDetectionModel.loss_names_to_weights = {
 
 # Training
 step_decay.initial_learning_rate = 0.1
+## orig
 #step_decay.boundary_list = [15000, 18000, 19500, 21000, 22500]
 #step_decay.ratio_list = [1.0, 0.3, 0.1, 0.03, 0.01, 0.001]
-step_decay.boundary_list = [1600, 4800, 6400, 7400, 9000, 18000]
-step_decay.ratio_list = [1.0, 0.3, 0.1, 0.03, 0.01, 0.001, 0.0001]
+## MV training 
+#step_decay.boundary_list = [1600, 4800, 6400, 7400, 9000, 18000]
+#step_decay.ratio_list = [1.0, 0.3, 0.1, 0.03, 0.01, 0.001, 0.0001]
+## SF training
+step_decay.boundary_list = [1200, 3000, 4800, 6400, 7400, 9000, 18000]
+step_decay.ratio_list = [1.0, 0.3, 0.1, 0.03, 0.01, 0.001, 0.0001, 0.00001]
 
 
 train.learning_rate_fn = @step_decay
