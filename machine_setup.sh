@@ -14,7 +14,7 @@
 #gcloud auth configure-docker gcr.io
 
 # Finally, pull the Docker image
-#docker pull gcr.io/kaggle-gpu-images/python:v82
+#docker pull gcr.io/kaggle-gpu-images/python:v81
 
 # Run jupyter by the Docker image
 #echo "kjupyter () { docker run --gpus all --runtime nvidia -v $PWD:/tmp/working -w=/tmp/working -p 8888:8888 --rm -it gcr.io/kaggle-gpu-images/python:v82 jupyter notebook --no-browser --port 8888 --ip="*" --allow-root --notebook-dir=/tmp/working; }" >> ~/.bashrc
