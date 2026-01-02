@@ -57,3 +57,9 @@ cd waymo-sf-night-training; unzip ../waymo-sf-night-training.zip
 wget --continue https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-sf-night-validation -O waymo-sf-night-validation.zip
 mkdir waymo-sf-night-validation
 cd waymo-sf-night-validation; unzip ../waymo-sf-night-validation.zip
+
+if [ "$1" = "cucw" ]; then
+    wget --continue https://www.kaggle.com/api/v1/datasets/download/mohammedosama/cucw-v2 -O cucw_small.zip
+    mkdir cucw
+    cd cucw; unzip ../cucw_small.zip
+fi
