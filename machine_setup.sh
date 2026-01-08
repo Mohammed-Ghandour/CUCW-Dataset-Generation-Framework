@@ -50,16 +50,17 @@ mv ./CUCW-Dataset-Generation-Framework/3d-object-detection-and-synthetic* ~
 #wget --continue https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-mv-night-training -O waymo-mv-night-training.zip
 wget --continue https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-sf-night-training -O waymo-sf-night-training.zip
 mkdir waymo-sf-night-training
-cd waymo-sf-night-training; unzip ../waymo-sf-night-training.zip
+cd waymo-sf-night-training; unzip ../waymo-sf-night-training.zip; cd ~
+
+if [ "$1" = "cucw" ]; then
+    wget --continue https://www.kaggle.com/api/v1/datasets/download/mohammedosama/cucw-v3 -O cucw.zip
+    mkdir cucw
+    cd cucw; unzip ../cucw.zip; cd ~
+fi
 
 # Download Waymo Night Validation Dataset
 #curl -L -o waymo-night-validation-dataset.zip https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-night-validation-dataset
 wget --continue https://www.kaggle.com/api/v1/datasets/download/mohammedosama/waymo-sf-night-validation -O waymo-sf-night-validation.zip
 mkdir waymo-sf-night-validation
-cd waymo-sf-night-validation; unzip ../waymo-sf-night-validation.zip
+cd waymo-sf-night-validation; unzip ../waymo-sf-night-validation.zip; cd ~
 
-if [ "$1" = "cucw" ]; then
-    wget --continue https://www.kaggle.com/api/v1/datasets/download/mohammedosama/cucw-v2 -O cucw_small.zip
-    mkdir cucw
-    cd cucw; unzip ../cucw_small.zip
-fi
